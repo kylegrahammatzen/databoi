@@ -3,6 +3,7 @@ import { env } from './config/env';
 import * as interactionCreateEvent from './events/interactionCreate';
 import * as readyEvent from './events/ready';
 import { deployCommands } from './utils/deployCommands';
+import logger from './utils/logger';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
@@ -16,7 +17,13 @@ async function main(): Promise<void> {
     await deployCommands(env.DISCORD_TOKEN, env.CLIENT_ID, env.GUILD_ID);
     await client.login(env.DISCORD_TOKEN);
   } catch (error) {
-    console.error('Failed to start bot:', error);
+    logger.fatal(
+      { 
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined
+      },
+      'Failed to start bot'
+    );
     process.exit(1);
   }
 }

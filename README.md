@@ -12,9 +12,9 @@ A TypeScript Discord bot with slash command support, built with modern developme
 
 - Full TypeScript support with strict typing
 - Slash commands with Discord.js v14
+- Professional logging with Pino logger
 - Environment variable validation
-- Automatic command deployment
-- Error handling and logging
+- Modular architecture with organized command structure
 
 ## Getting Started
 
@@ -47,26 +47,17 @@ A TypeScript Discord bot with slash command support, built with modern developme
 
 4. Start the bot:
    ```bash
+   # Development mode
    bun run dev
+   
+   # Watch mode
+   bun run watch
    ```
 
 ## Available Commands
 
-- `/ping` - Simple ping-pong response
-- `/hello` - Greet a user (optional user parameter)
-
-## Development
-
-**Build for production:**
-```bash
-bun run build
-bun start
-```
-
-**Watch mode:**
-```bash
-bun run watch
-```
+- `/ping` - Simple ping-pong response with latency
+- `/hello [user]` - Greet a user (optional user parameter)
 
 ## License
 

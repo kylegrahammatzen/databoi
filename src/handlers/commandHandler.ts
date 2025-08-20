@@ -1,12 +1,8 @@
 import { Collection } from 'discord.js';
-import analyticsCommand from '../commands/databuddy/analytics';
-import askCommand from '../commands/databuddy/ask';
-import eventsCommand from '../commands/databuddy/events';
-import topPagesCommand from '../commands/databuddy/top-pages';
-import websitesCommand from '../commands/databuddy/websites';
 import helloCommand from '../commands/hello';
 import pingCommand from '../commands/ping';
 import type { Command } from '../types/command';
+import logger from '../utils/logger';
 
 class CommandHandlerClass {
   private commands: Collection<string, Command>;
@@ -21,20 +17,13 @@ class CommandHandlerClass {
       // Basic commands
       pingCommand,
       helloCommand,
-
-      // Databuddy commands
-      analyticsCommand,
-      topPagesCommand,
-      websitesCommand,
-      eventsCommand,
-      askCommand,
     ];
 
     for (const command of commandList) {
       this.commands.set(command.data.name, command);
     }
 
-    console.log(`Loaded ${this.commands.size} commands`);
+    logger.info({ commandCount: this.commands.size }, 'Commands loaded successfully');
   }
 
   public getCommand(name: string): Command | undefined {

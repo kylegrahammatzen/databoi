@@ -1,5 +1,6 @@
 import { REST, Routes } from 'discord.js';
 import { commandHandler } from '../handlers/commandHandler';
+import logger from './logger';
 
 export async function deployCommands(
   token: string,
@@ -16,8 +17,9 @@ export async function deployCommands(
 
   try {
     if (guildId) {
-      console.log(
-        `Started refreshing ${commands.length} guild (/) commands for guild ${guildId}.`
+      logger.info(
+        { commandCount: commands.length, guildId, mode: 'development' },
+        'Starting guild command deployment'
       );
 
       const data = (await rest.put(
@@ -25,25 +27,33 @@ export async function deployCommands(
         { body: commands }
       )) as unknown[];
 
-      console.log(`Successfully reloaded ${data.length} guild (/) commands.`);
-    } else {
-      console.log(
-        `Started refreshing ${commands.length} global application (/) commands.`
+      logger.info(
+        { deployedCount: data.length, guildId },
+        'Guild commands deployed successfully'
       );
-      console.log(
-        'Note: Global commands can take up to 1 hour to propagate. Consider using GUILD_ID for instant updates.'
+    } else {
+      logger.info(
+        { commandCount: commands.length, mode: 'production' },
+        'Starting global command deployment'
       );
 
       const data = (await rest.put(Routes.applicationCommands(clientId), {
         body: commands,
       })) as unknown[];
 
-      console.log(
-        `Successfully reloaded ${data.length} global application (/) commands.`
+      logger.info(
+        { deployedCount: data.length },
+        'Global commands deployed successfully'
       );
     }
   } catch (error) {
-    console.error('Error deploying commands:', error);
+    logger.error(
+      { 
+        error: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined
+      },
+      'Command deployment failed'
+    );
     throw error;
   }
 }
