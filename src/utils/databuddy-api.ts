@@ -1,6 +1,7 @@
 import { env } from '@/config/env';
 import type {
   DatabuddyAnalyticsResponse,
+  DatabuddyAssistantResponse,
   DatabuddyErrorResponse,
   DatabuddyEventsResponse,
   DatabuddyWebsiteDetailsResponse,
@@ -99,7 +100,7 @@ class DatabuddyAPI {
         end: string;
       };
     }
-  ): Promise<{ type: string; content: string; data?: unknown }> {
+  ): Promise<DatabuddyAssistantResponse> {
     if (!this.apiKey) {
       throw new Error('Databuddy API key not configured');
     }
@@ -119,15 +120,16 @@ class DatabuddyAPI {
       }
     );
 
-    const data = await response.json();
+    const data = (await response.json()) as DatabuddyAssistantResponse | DatabuddyErrorResponse;
 
     if (!response.ok) {
+      const errorData = data as DatabuddyErrorResponse;
       throw new Error(
-        `AI Assistant Error: ${data.error?.message || 'Unknown error'}`
+        `AI Assistant Error: ${errorData.error?.message || 'Unknown error'}`
       );
     }
 
-    return data;
+    return data as DatabuddyAssistantResponse;
   }
 }
 

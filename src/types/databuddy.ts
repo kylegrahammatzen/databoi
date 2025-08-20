@@ -89,3 +89,9 @@ export type DatabuddyErrorResponse = {
     details: Record<string, unknown>;
   };
 };
+
+export type DatabuddyAssistantResponse = {
+  type: string;
+  content: string;
+  data?: unknown;
+};
