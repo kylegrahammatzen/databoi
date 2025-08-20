@@ -2,9 +2,15 @@
 
 # Databoi
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Discord.js](https://img.shields.io/badge/Discord.js-5865F2?logo=discord&logoColor=white)](https://discord.js.org)
+<div align="center">
+
+[![License: AGPL](https://img.shields.io/badge/License-AGPL-red.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![Bun](https://img.shields.io/badge/Bun-1.2-blue.svg)](https://bun.sh/)
+[![Discord.js](https://img.shields.io/badge/Discord.js-14.21-5865F2.svg)](https://discord.js.org)
+[![Pino](https://img.shields.io/badge/Pino-9.9-green.svg)](https://getpino.io/)
+
+</div>
 
 A TypeScript Discord bot with slash command support, built with modern development practices and full type safety.
 
