@@ -1,7 +1,12 @@
 import { Collection } from 'discord.js';
-import type { Command } from '../types/command';
-import pingCommand from '../commands/ping';
+import analyticsCommand from '../commands/databuddy/analytics';
+import askCommand from '../commands/databuddy/ask';
+import eventsCommand from '../commands/databuddy/events';
+import topPagesCommand from '../commands/databuddy/top-pages';
+import websitesCommand from '../commands/databuddy/websites';
 import helloCommand from '../commands/hello';
+import pingCommand from '../commands/ping';
+import type { Command } from '../types/command';
 
 class CommandHandlerClass {
   private commands: Collection<string, Command>;
@@ -13,8 +18,16 @@ class CommandHandlerClass {
 
   private loadCommands(): void {
     const commandList: Command[] = [
+      // Basic commands
       pingCommand,
-      helloCommand
+      helloCommand,
+
+      // Databuddy commands
+      analyticsCommand,
+      topPagesCommand,
+      websitesCommand,
+      eventsCommand,
+      askCommand,
     ];
 
     for (const command of commandList) {
@@ -33,7 +46,7 @@ class CommandHandlerClass {
   }
 
   public getCommandData(): unknown[] {
-    return this.getAllCommands().map(cmd => cmd.data.toJSON());
+    return this.getAllCommands().map((cmd) => cmd.data.toJSON());
   }
 }
 

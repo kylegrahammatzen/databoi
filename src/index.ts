@@ -1,14 +1,11 @@
 import { Client, GatewayIntentBits } from 'discord.js';
 import { env } from './config/env';
-import { deployCommands } from './utils/deployCommands';
-import * as readyEvent from './events/ready';
 import * as interactionCreateEvent from './events/interactionCreate';
+import * as readyEvent from './events/ready';
+import { deployCommands } from './utils/deployCommands';
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages
-  ]
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
 });
 
 client.once(readyEvent.name, readyEvent.execute);

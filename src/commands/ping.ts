@@ -8,7 +8,7 @@ const pingCommand: Command = {
   execute: async (interaction) => {
     const latency = Date.now() - interaction.createdTimestamp;
     await interaction.reply(`Pong! Latency: ${latency}ms`);
-  }
+  },
 };
 
 export default pingCommand;

@@ -11,7 +11,11 @@
     "lint": "npx ultracite@latest lint",
     "format": "npx ultracite@latest format"
   },
-  "keywords": ["discord", "bot", "typescript"],
+  "keywords": [
+    "discord",
+    "bot",
+    "typescript"
+  ],
   "author": "",
   "license": "AGPL-3.0",
   "dependencies": {
