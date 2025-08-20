@@ -2,6 +2,7 @@ import { env } from '@/config/env';
 import type {
   DatabuddyAnalyticsResponse,
   DatabuddyAssistantResponse,
+  DatabuddyBaseResponse,
   DatabuddyErrorResponse,
   DatabuddyEventsResponse,
   DatabuddyWebsiteDetailsResponse,
@@ -29,7 +30,7 @@ class DatabuddyAPI {
       },
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as DatabuddyBaseResponse;
 
     if (!data.success) {
       const error = data as DatabuddyErrorResponse;

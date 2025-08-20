@@ -81,6 +81,10 @@ export type DatabuddyEventsResponse = {
   };
 };
 
+export type DatabuddyBaseResponse = {
+  success: boolean;
+};
+
 export type DatabuddyErrorResponse = {
   success: false;
   error: {
