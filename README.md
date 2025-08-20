@@ -39,10 +39,9 @@ A TypeScript Discord bot with slash command support, built with modern developme
    ```
    https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=2147486720
    ```
-   Replace `INSERT_CLIENT_ID_HERE` with your bot's client ID. This link requests:
-   - View Channels (1024)
-   - Send Messages (2048)
-   - Use Application Commands (2147483648)
+   Permissions: View Channels, Send Messages, Use Application Commands
+   
+   Calculate custom permissions at: https://discordapi.com/permissions.html
 
 4. Start the bot:
    ```bash
