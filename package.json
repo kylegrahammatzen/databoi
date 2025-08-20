@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A TypeScript Discord bot with slash commands",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "start": "bun dist/index.js",
+    "dev": "bun run src/index.ts",
+    "watch": "bun --watch src/index.ts"
+  },
+  "keywords": ["discord", "bot", "typescript"],
+  "author": "",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
+}
