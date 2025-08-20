@@ -1,4 +1,6 @@
-# Databuddy
+[![Databuddy Banner](.github/banner.png)](https://databuddy.cc/)
+
+# Databoi
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -25,7 +27,7 @@ A TypeScript Discord bot with slash command support, built with modern developme
 1. Clone and install dependencies:
    ```bash
    git clone <repository>
-   cd databuddy
+   cd databoi
    bun install
    ```
 
@@ -70,4 +72,4 @@ bun run watch
 
 This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
 
-Copyright (c) 2025 Databuddy
+Copyright (c) 2025 Databoi

@@ -1,5 +1,5 @@
 {
-  "name": "discord-bot",
+  "name": "databoi",
   "version": "1.0.0",
   "description": "A TypeScript Discord bot with slash commands",
   "main": "dist/index.js",
@@ -7,7 +7,9 @@
     "build": "bun build src/index.ts --outdir dist --target node",
     "start": "bun dist/index.js",
     "dev": "bun run src/index.ts",
-    "watch": "bun --watch src/index.ts"
+    "watch": "bun --watch src/index.ts",
+    "lint": "npx ultracite@latest lint",
+    "format": "npx ultracite@latest format"
   },
   "keywords": ["discord", "bot", "typescript"],
   "author": "",
